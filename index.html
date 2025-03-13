@@ -5,10 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> PH Tube</title>
-    <link rel="icon" href="image/stock-vector-red-play-youtube-logo-button-vector-icon-and-mouse-cursor-734637475.jpg" type="image/svg+xml">
+    <link rel="icon" href="image/stock-vector-red-play-youtube-logo-button-vector-icon-and-mouse-cursor-734637475.jpg"
+        type="image/svg+xml">
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://kit.fontawesome.com/3e2e61350a.js" crossorigin="anonymous"></script>
+    <style>
+        .Active {
+            background: #FF1F3D;
+            color: white;
+        }
+    </style>
 </head>
 
 <body>
@@ -19,24 +26,43 @@
                     <img class="w-[175px]" src="image/Logo.png" alt="">
                 </div>
                 <div>
-                    <button class="bg-slate-300 px-4 py-2 hidden md:block lg:block rounded-md -ml-16">Short by
-                        view</button>
+                    <label class="input ">
+                        <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></g></svg>
+                        <input id="input-search" type="search" required placeholder="Search"/>
+                      </label>
                 </div>
                 <div>
-                    <button class="bg-[#FF1F3D] px-4 py-2 rounded-md text-white">Blog</button>
+                    <button class="bg-[#FF1F3D] px-4 py-2 rounded-md text-white">Short By View</button>
                 </div>
             </div>
         </nav>
         <nav id="categories-container" class="flex gap-4 items-center justify-center mt-8">
             <div>
-                <button class="bg-[#FF1F3D]  px-4 py-1 rounded-md text-white hover:text-white">All</button>
+                <button onclick="loadVedio()" id="btn-all"
+                    class="bg-slate-300 hover:bg-[#FF1F3D]  px-4 py-1 rounded-md text-stone-600 hover:text-white">All</button>
                 <!-- <button class="bg-slate-300 px-4 py-1 rounded-md text-stone-600 hover:bg-[#FF1F3D] hover:text-white">Music</button>
                 <button class="bg-slate-300 px-4 py-1 rounded-md text-stone-600 hover:bg-[#FF1F3D] hover:text-white">Comedy</button>
                 <button class="bg-slate-300 px-4 py-1 rounded-md text-stone-600 hover:bg-[#FF1F3D] hover:text-white">Drawing</button> -->
             </div>
         </nav>
-        <section id="video-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-4">
+        <section id="video-container" class="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 p-4">
+
         </section>
+
+
+        <!-- Open the modal using ID.showModal() method -->
+        <div onclick="showModal()"></div>
+        <dialog id="video_details" class="modal">
+            <div class="modal-box">
+                <div id="details-container"></div>
+                <div class="modal-action">
+                    <form method="dialog">
+                        <!-- if there is a button in form, it will close the modal -->
+                        <button class="btn">Close</button>
+                    </form>
+                </div>
+            </div>
+        </dialog>
 
 
         <main>
